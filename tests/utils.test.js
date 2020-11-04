@@ -15,10 +15,7 @@ describe("Test utils.js", () => {
     expect(kFormatter(1)).toBe(1);
     expect(kFormatter(-1)).toBe(-1);
     expect(kFormatter(500)).toBe(500);
-    expect(kFormatter(1000)).toBe("1k");
-    expect(kFormatter(10000)).toBe("10k");
-    expect(kFormatter(12345)).toBe("12.3k");
-    expect(kFormatter(9900000)).toBe("9900k");
+    expect(kFormatter(1000)).toBe(1000);
   });
 
   it("should test encodeHTML", () => {
@@ -32,7 +29,6 @@ describe("Test utils.js", () => {
     expect(
       queryByTestId(document.body, "message").children[0],
     ).toHaveTextContent(/Something went wrong/gim);
-    expect(queryByTestId(document.body, "message").children[1]).toBeEmpty(2);
 
     // Secondary message
     document.body.innerHTML = renderError(
